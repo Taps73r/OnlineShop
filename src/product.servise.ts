@@ -2,9 +2,9 @@ import axios from "axios";
 
 class ProductService {
 
-    async getAllProducts() {
+    async getProducts() {
         return axios.get("https://jsonplaceholder.typicode.com/todos");
     }
 }
 
-export default new ProductService();
+export { ProductService };
