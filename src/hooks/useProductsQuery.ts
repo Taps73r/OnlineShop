@@ -2,9 +2,9 @@ import { ProductService } from "@/product.servise";
 
 import { useQuery } from "@tanstack/react-query";
 
-const productService = new ProductService();
-
 export const useProductsQuery = () => {
+    const productService = new ProductService();
+
     return useQuery({
         queryKey: ["products"],
         queryFn: () => productService.getProducts(),
