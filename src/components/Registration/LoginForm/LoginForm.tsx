@@ -4,21 +4,27 @@ import "../RegistrationForm/RegistrationForm.scss";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { ILoginFiels } from "@/interface/authorization.interface";
+import { ICredentials, ILoginFiels } from "@/interface/authorization.interface";
 import { ErrorForm } from "@/components/common/ErrorForm";
 
 interface ILoginFormProps {
     authErrors: string;
+    handleAuth: (credentials: ICredentials) => void;
 }
 
-export function LoginForm({ authErrors }: ILoginFormProps): JSX.Element {
+export function LoginForm({
+    authErrors,
+    handleAuth,
+}: ILoginFormProps): JSX.Element {
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<ILoginFiels>();
 
-    const onSubmit: SubmitHandler<ILoginFiels> = (data) => {};
+    const onSubmit: SubmitHandler<ILoginFiels> = (data) => {
+        handleAuth(data as ICredentials);
+    };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -52,11 +58,6 @@ export function LoginForm({ authErrors }: ILoginFormProps): JSX.Element {
                         maxLength: {
                             value: 30,
                             message: "Password cannot exceed 30 characters",
-                        },
-                        pattern: {
-                            value: /^(?=.*[a-z])(?=.*[A-Z]).+$/,
-                            message:
-                                "Password must contain at least one uppercase letter, one lowercase letter",
                         },
                         minLength: {
                             value: 5,
