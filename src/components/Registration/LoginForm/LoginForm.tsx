@@ -1,48 +1,28 @@
 "use client";
 
-import "./RegistrationForm.scss";
+import "../RegistrationForm/RegistrationForm.scss";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { IRegisterFields } from "@/interface/authorization.interface";
+import { ILoginFiels } from "@/interface/authorization.interface";
 import { ErrorForm } from "@/components/common/ErrorForm";
 
-interface IRegistrationFormProps {
-    registerErrors: string;
+interface ILoginFormProps {
+    authErrors: string;
 }
 
-export function RegistrationForm({
-    registerErrors,
-}: IRegistrationFormProps): JSX.Element {
+export function LoginForm({ authErrors }: ILoginFormProps): JSX.Element {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IRegisterFields>();
+    } = useForm<ILoginFiels>();
 
-    const onSubmit: SubmitHandler<IRegisterFields> = (data) => alert(data.name);
+    const onSubmit: SubmitHandler<ILoginFiels> = (data) => {};
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <h1>Registration</h1>
-            <div>
-                <label>Name</label>
-                {errors.name && <ErrorForm message={errors.name.message} />}
-                <input
-                    {...register("name", {
-                        required: "Name is required field",
-                        maxLength: {
-                            value: 20,
-                            message: "Name cannot exceed 20 characters",
-                        },
-                        minLength: {
-                            value: 3,
-                            message: "Name must be at least 3 characters long",
-                        },
-                    })}
-                    type="text"
-                />
-            </div>
+            <h1>Login</h1>
             <div>
                 <label>Email</label>
                 {errors.email && <ErrorForm message={errors.email.message} />}
