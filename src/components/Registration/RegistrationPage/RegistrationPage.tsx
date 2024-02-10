@@ -15,7 +15,7 @@ export function RegistrationPage() {
 
     return (
         <div className="registration-page">
-            {isLogin ? <LoginForm authErrors={} /> : <RegistrationForm registerErrors={} />}
+            {isLogin ? <LoginForm authErrors="" /> : <RegistrationForm registerErrors="" />}
             <button onClick={toggleForm}>
                 {isLogin ? "Switch to Registration" : "Switch to Login"}
             </button>
