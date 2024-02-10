@@ -13,7 +13,6 @@ import { useMutation } from "@tanstack/react-query";
 
 export function RegistrationPage() {
     const [isLogin, setIsLogin] = useState<boolean>(false);
-    const authService = new AuthService();
 
     const toggleForm = () => {
         setIsLogin(!isLogin);

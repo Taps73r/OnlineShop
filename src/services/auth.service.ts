@@ -5,7 +5,7 @@ class AuthService {
     private URL = `http://localhost:8080/auth`;
 
     async loginUser(credentials: ICredentials) {
-        return await axios.post<any, Error, unknown>(
+        return await axios.post(
             `${this.URL}/authenticate`,
             credentials
         );
