@@ -15,6 +15,7 @@ import { ROUTES } from "@/routes/routes";
 export function RegistrationPage() {
     const [isLogin, setIsLogin] = useState<boolean>(false);
     const [errorData, setErrorData] = useState<string>("");
+    const router = useRouter();
 
     const authMutation = useAuthMutation();
 
@@ -27,7 +28,7 @@ export function RegistrationPage() {
             onSuccess: (data) => {
                 const token: string = data.data.token;
                 document.cookie = `accessToken=${token}; Path=/; Secure; SameSite=None`;
-                history.push(ROUTES.home);
+                router.push(ROUTES.home);
             },
             onError: (error) => {
                 setErrorData(`${error}`);
