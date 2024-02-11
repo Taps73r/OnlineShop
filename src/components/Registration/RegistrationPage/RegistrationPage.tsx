@@ -1,12 +1,16 @@
 "use client";
 
+import "./RegistrationPage.scss";
+
+import { useRouter } from "next/router";
+
 import React, { useState } from "react";
 import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
 import { LoginForm } from "../LoginForm/LoginForm";
 
-import "./RegistrationPage.scss";
 import { ICredentials } from "@/interface/authorization.interface";
 import { useAuthMutation } from "@/mutations/useAuthMutation";
+import { ROUTES } from "@/routes/routes";
 
 export function RegistrationPage() {
     const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -23,6 +27,7 @@ export function RegistrationPage() {
             onSuccess: (data) => {
                 const token: string = data.data.token;
                 document.cookie = `accessToken=${token}; Path=/; Secure; SameSite=None`;
+                history.push(ROUTES.home);
             },
             onError: (error) => {
                 setErrorData(`${error}`);
