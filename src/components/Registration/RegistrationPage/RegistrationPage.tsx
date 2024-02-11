@@ -5,23 +5,35 @@ import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
 import { LoginForm } from "../LoginForm/LoginForm";
 
 import "./RegistrationPage.scss";
-import axios, { AxiosResponse } from "axios";
-import { useAuthQuery } from "@/hooks/useAuthQuery";
 import { ICredentials } from "@/interface/authorization.interface";
-import { AuthService } from "@/services/auth.service";
-import { useMutation } from "@tanstack/react-query";
+import { useAuthMutation } from "@/mutations/useAuthMutation";
 
 export function RegistrationPage() {
     const [isLogin, setIsLogin] = useState<boolean>(false);
+    const [errorData, setErrorData] = useState<string>("");
+
+    const authMutation = useAuthMutation();
 
     const toggleForm = () => {
         setIsLogin(!isLogin);
     };
 
+    const handleAuth = async (credentials: ICredentials) => {
+        authMutation.mutate(credentials, {
+            onSuccess: (data) => {
+                const token: string = data.data.token;
+                document.cookie = `accessToken=${token}; Path=/; Secure; SameSite=None`;
+            },
+            onError: (error) => {
+                setErrorData(`${error}`);
+            },
+        });
+    };
+
     return (
         <div className="registration-page">
             {isLogin ? (
-                <LoginForm authErrors="" handleAuth={handleAuth} />
+                <LoginForm authErrors={errorData} handleAuth={handleAuth} />
             ) : (
                 <RegistrationForm registerErrors="" />
             )}
