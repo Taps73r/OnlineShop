@@ -8,9 +8,11 @@ import React, { useState } from "react";
 import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
 import { LoginForm } from "../LoginForm/LoginForm";
 
-import { ICredentials } from "@/interface/authorization.interface";
+import { ICredentials, IUserData } from "@/interface/authorization.interface";
 import { useAuthMutation } from "@/hooks/useAuthMutation";
 import { ROUTES } from "@/routes/routes";
+import { useRegisterMutation } from "@/hooks/useRegisterMutation";
+import { error } from "console";
 
 export function RegistrationPage() {
     const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -18,9 +20,20 @@ export function RegistrationPage() {
     const router = useRouter();
 
     const authMutation = useAuthMutation();
+    const registerMutation = useRegisterMutation();
 
     const toggleForm = () => {
         setIsLogin(!isLogin);
+    };
+
+    const handleRegister = async (userData: IUserData) => {
+        registerMutation.mutate(userData, {
+            onSuccess: (data) => {
+                const token: string;
+                //TODO: Доробити реєстрацію, запустити бекенд
+            },
+            onError: (error) => {},
+        });
     };
 
     const handleAuth = async (credentials: ICredentials) => {
