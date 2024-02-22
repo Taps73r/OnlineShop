@@ -9,7 +9,7 @@ import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
 import { LoginForm } from "../LoginForm/LoginForm";
 
 import { ICredentials } from "@/interface/authorization.interface";
-import { useAuthMutation } from "@/mutations/useAuthMutation";
+import { useAuthMutation } from "@/hooks/useAuthMutation";
 import { ROUTES } from "@/routes/routes";
 
 export function RegistrationPage() {

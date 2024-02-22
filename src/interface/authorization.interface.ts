@@ -4,7 +4,7 @@ export interface IRegisterFields {
     password: string;
 }
 
-export interface ILoginFiels {
+export interface ILoginFields {
     email: string;
     password: string;
 }

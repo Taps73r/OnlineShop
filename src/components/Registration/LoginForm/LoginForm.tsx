@@ -4,7 +4,7 @@ import "../RegistrationForm/RegistrationForm.scss";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { ICredentials, ILoginFiels } from "@/interface/authorization.interface";
+import { ICredentials, ILoginFields } from "@/interface/authorization.interface";
 import { ErrorForm } from "@/components/common/ErrorForm";
 
 interface ILoginFormProps {
@@ -20,9 +20,9 @@ export function LoginForm({
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<ILoginFiels>();
+    } = useForm<ILoginFields>();
 
-    const onSubmit: SubmitHandler<ILoginFiels> = (data) => {
+    const onSubmit: SubmitHandler<ILoginFields> = (data) => {
         handleAuth(data as ICredentials);
     };
 
