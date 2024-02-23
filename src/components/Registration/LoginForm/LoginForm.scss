@@ -25,11 +25,22 @@
 
     &__email,
     &__password {
-        width: 90%;
+        width: 89.6%;
         align-self: center;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+
+        & input {
+            height: 3.5svw;
+            background-color: #eeeeee;
+            border: 2px solid #d9d9d9;
+
+            &::placeholder {
+                font-size: 1.5rem;
+                font-family: $main-font-family;
+            }
+        }
 
         & input:focus {
             outline: none;

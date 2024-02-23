@@ -38,6 +38,7 @@ export function LoginForm({
                 <label>Email</label>
                 {errors.email && <ErrorForm message={errors.email.message} />}
                 <input
+                    placeholder="enter your e-mail here"
                     {...register("email", {
                         required: "Email is required field",
                         maxLength: {
