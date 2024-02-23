@@ -26,15 +26,15 @@ export function RegistrationPage() {
         setIsLogin(!isLogin);
     };
 
-    const handleRegister = async (userData: IUserData) => {
-        registerMutation.mutate(userData, {
-            onSuccess: (data) => {
-                const token: string;
-                //TODO: Доробити реєстрацію, запустити бекенд
-            },
-            onError: (error) => {},
-        });
-    };
+    // const handleRegister = async (userData: IUserData) => {
+    //     registerMutation.mutate(userData, {
+    //         onSuccess: (data) => {
+    //             const token: string;
+    //             //TODO: Доробити реєстрацію, запустити бекенд
+    //         },
+    //         onError: (error) => {},
+    //     });
+    // };
 
     const handleAuth = async (credentials: ICredentials) => {
         authMutation.mutate(credentials, {
@@ -51,14 +51,25 @@ export function RegistrationPage() {
 
     return (
         <div className="registration-page">
-            {isLogin ? (
-                <LoginForm authErrors={errorData} handleAuth={handleAuth} />
-            ) : (
-                <RegistrationForm registerErrors="" />
-            )}
-            <button onClick={toggleForm}>
-                {isLogin ? "Switch to Registration" : "Switch to Login"}
-            </button>
+            <div className="registration-page__form-position">
+                {isLogin ? (
+                    <>
+                        <LoginForm
+                            authErrors={errorData}
+                            handleAuth={handleAuth}
+                        />
+                        <p>you don’t have an account yet?</p>
+                    </>
+                ) : (
+                    <>
+                        <RegistrationForm registerErrors="" />
+                        <p>you already have an account?</p>
+                    </>
+                )}
+                <button onClick={toggleForm}>
+                    {isLogin ? "SIGN UP" : "LOG IN"}
+                </button>
+            </div>
         </div>
     );
 }
