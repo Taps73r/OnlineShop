@@ -6,9 +6,10 @@
 
 html,
 body {
-  max-width: 100vw;
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
-  background-color: #cacaca;
+  background-color: #EEEEEE;
 }
 
 a {
