@@ -1,0 +1,26 @@
+.login-form {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    & h1 {
+        text-align: center;
+        color: #D65A31;
+        width: 100%;
+        background-color: #D9D9D9;
+    }
+
+    &__email,
+    &__password {
+        width: 90%;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        & input:focus {
+            outline: none;
+        }
+    }
+}

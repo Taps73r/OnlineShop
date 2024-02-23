@@ -1,10 +1,13 @@
 "use client";
 
-import "../RegistrationForm/RegistrationForm.scss";
+import "./LoginForm.scss";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { ICredentials, ILoginFields } from "@/interface/authorization.interface";
+import {
+    ICredentials,
+    ILoginFields,
+} from "@/interface/authorization.interface";
 import { ErrorForm } from "@/components/common/ErrorForm";
 
 interface ILoginFormProps {
@@ -27,9 +30,9 @@ export function LoginForm({
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="login-form">
             <h1>Login</h1>
-            <div>
+            <div className="login-form__email">
                 <label>Email</label>
                 {errors.email && <ErrorForm message={errors.email.message} />}
                 <input
@@ -47,7 +50,7 @@ export function LoginForm({
                     type="text"
                 />
             </div>
-            <div>
+            <div className="login-form__password">
                 <label>Password</label>
                 {errors.password && (
                     <ErrorForm message={errors.password.message} />
@@ -68,8 +71,8 @@ export function LoginForm({
                     type="text"
                 />
             </div>
-            <div>
-                <button>Register</button>
+            <div className="login-form__btn">
+                <button>Log In</button>
             </div>
         </form>
     );
