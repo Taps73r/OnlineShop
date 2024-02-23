@@ -31,7 +31,7 @@ export function LoginForm({
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="login-form">
-            <h1>Login</h1>
+            <h1>Log In</h1>
             <div className="login-form__email">
                 <label>Email</label>
                 {errors.email && <ErrorForm message={errors.email.message} />}
