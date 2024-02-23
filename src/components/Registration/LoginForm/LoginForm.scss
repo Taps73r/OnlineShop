@@ -7,13 +7,20 @@
     flex-direction: column;
     font-family: $main-font-family;
 
-    & h1 {
-        text-align: center;
-        color: #d65a31;
+    &__text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         background-color: #d9d9d9;
-        height: 4.7svw;
-        
+
+        & h1 {
+            height: 4.7svw;
+            font-size: 2.7svw;
+            background: linear-gradient(to bottom, #af401b, #d65a31);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 
     &__email,
