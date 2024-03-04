@@ -1,0 +1,12 @@
+@import "@/assets/style/vars";
+
+.error-form {
+    position: absolute;
+    margin-top: 90px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: $main-font-family;
+    background: linear-gradient(to bottom, #af401b, #d65a31);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
