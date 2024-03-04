@@ -35,8 +35,7 @@ export function LoginForm({
                 <h1>Log In</h1>
             </div>
             <div className="login-form__email">
-                <label>Email</label>
-                {errors.email && <ErrorForm message={errors.email.message} />}
+                <label>e-mail</label>
                 <input
                     placeholder="enter your e-mail here"
                     {...register("email", {
@@ -52,13 +51,14 @@ export function LoginForm({
                     })}
                     type="text"
                 />
+                {errors.email && (
+                    <ErrorForm message={errors.email.message} />
+                )}
             </div>
             <div className="login-form__password">
-                <label>Password</label>
-                {errors.password && (
-                    <ErrorForm message={errors.password.message} />
-                )}
+                <label>password</label>
                 <input
+                    placeholder="enter your password here"
                     {...register("password", {
                         required: "Password is required field",
                         maxLength: {
@@ -73,6 +73,9 @@ export function LoginForm({
                     })}
                     type="text"
                 />
+                {errors.password && (
+                    <ErrorForm message={errors.password.message} />
+                )}
             </div>
             <div className="login-form__btn">
                 <button>Log In</button>

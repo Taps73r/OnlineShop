@@ -13,10 +13,11 @@
         justify-content: center;
         width: 100%;
         background-color: #d9d9d9;
+        margin-bottom: 20px;
 
         & h1 {
-            height: 4.7svw;
-            font-size: 2.7svw;
+            height: 61px;
+            font-size: 35px;
             background: linear-gradient(to bottom, #af401b, #d65a31);
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -25,19 +26,27 @@
 
     &__email,
     &__password {
-        width: 89.6%;
+        font-size: 25px;
+        color: #222831;
+        font-weight: 500;
+        width: 90%;
         align-self: center;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        margin: 0 0 30px 0;
 
         & input {
-            height: 3.5svw;
+            padding-left: 10px;
+            font-family: $main-font-family;
+            font-size: 20px;
+            height: 45px;
             background-color: #eeeeee;
             border: 2px solid #d9d9d9;
+            margin: 6px 0;
 
             &::placeholder {
-                font-size: 1.5rem;
+                font-size: 20px;
                 font-family: $main-font-family;
             }
         }
