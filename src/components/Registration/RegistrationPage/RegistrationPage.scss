@@ -1,13 +1,48 @@
-.registration-page{
+@import "@/assets/style/vars";
+
+.registration-page {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: $main-font-family;
 
     &__form-position {
         background-color: #d9d9d993;
         height: 510px;
         width: 500px;
+
+        &__toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            height: 20%;
+
+            & p {
+                color: #222831;
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+            & button {
+                margin-top: 4px;
+                font-size: 25px;
+                cursor: pointer;
+                font-weight: 500;
+                border: none;
+                background-color: #d9d9d993;
+                font-family: $main-font-family;
+                background: linear-gradient(to bottom, #af401b, #d65a31);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                transition: text-shadow 0.3s ease;
+
+                &:hover {
+                    text-shadow: 0 0 10px #af401b7c;
+                }
+            }
+        }
     }
 }

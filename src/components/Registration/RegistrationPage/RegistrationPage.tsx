@@ -58,17 +58,24 @@ export function RegistrationPage() {
                             authErrors={errorData}
                             handleAuth={handleAuth}
                         />
-                        <p>you don’t have an account yet?</p>
                     </>
                 ) : (
                     <>
                         <RegistrationForm registerErrors="" />
-                        <p>you already have an account?</p>
                     </>
                 )}
-                <button onClick={toggleForm}>
-                    {isLogin ? "SIGN UP" : "LOG IN"}
-                </button>
+                <div className="registration-page__form-position__toggle">
+                    {isLogin ? (
+                        <p>you don’t have an account yet?</p>
+                    ) : (
+                        <p>you already have an account?</p>
+                    )}
+                    <button
+                        onClick={toggleForm}
+                    >
+                        {isLogin ? "sign up" : "log in"}
+                    </button>
+                </div>
             </div>
         </div>
     );
