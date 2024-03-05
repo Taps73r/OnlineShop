@@ -1,0 +1,92 @@
+@import "@/assets/style/vars";
+
+.register-form {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+    font-family: $main-font-family;
+
+    &__text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: #d9d9d9;
+
+        & h1 {
+            height: 61px;
+            font-size: 35px;
+            background: linear-gradient(to bottom, #af401b, #d65a31);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &__email,
+    &__name,
+    &__password {
+        font-size: 25px;
+        color: #222831;
+        font-weight: 500;
+        width: 90%;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 0 0 20px 0;
+
+        & input {
+            padding-left: 10px;
+            font-family: $main-font-family;
+            font-size: 20px;
+            height: 45px;
+            background-color: #eeeeee;
+            border: 2px solid #d9d9d9;
+            margin: 6px 0;
+
+            &::placeholder {
+                font-size: 20px;
+                font-family: $main-font-family;
+            }
+        }
+
+        & input:focus {
+            outline: none;
+        }
+    }
+
+    &__password {
+        margin: 0 0 50px 0;
+    }
+
+    &__btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 60px;
+        align-items: flex-end;
+
+        & button {
+            cursor: pointer;
+            font-size: 25px;
+            font-weight: 500;
+            background: linear-gradient(to bottom, #af401b, #d65a31);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: $main-font-family;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            height: 45px;
+            width: 140px;
+            box-shadow: 0 0 2px 2px #222831a9 inset;
+
+            &:hover {
+                background: #222831;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}

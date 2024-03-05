@@ -23,11 +23,12 @@ export function RegistrationForm({
     const onSubmit: SubmitHandler<IRegisterFields> = (data) => alert(data.name);
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <h1>Registration</h1>
-            <div>
+        <form onSubmit={handleSubmit(onSubmit)} className="register-form">
+            <div className="register-form__text">
+                <h1>Sign Up</h1>
+            </div>
+            <div className="register-form__name">
                 <label>Name</label>
-                {errors.name && <ErrorForm message={errors.name.message} />}
                 <input
                     {...register("name", {
                         required: "Name is required field",
@@ -42,10 +43,10 @@ export function RegistrationForm({
                     })}
                     type="text"
                 />
+                {errors.name && <ErrorForm message={errors.name.message} />}
             </div>
-            <div>
+            <div className="register-form__email">
                 <label>Email</label>
-                {errors.email && <ErrorForm message={errors.email.message} />}
                 <input
                     {...register("email", {
                         required: "Email is required field",
@@ -60,12 +61,10 @@ export function RegistrationForm({
                     })}
                     type="text"
                 />
+                {errors.email && <ErrorForm message={errors.email.message} />}
             </div>
-            <div>
+            <div className="register-form__password">
                 <label>Password</label>
-                {errors.password && (
-                    <ErrorForm message={errors.password.message} />
-                )}
                 <input
                     {...register("password", {
                         required: "Password is required field",
@@ -86,9 +85,12 @@ export function RegistrationForm({
                     })}
                     type="text"
                 />
+                {errors.password && (
+                    <ErrorForm message={errors.password.message} />
+                )}
             </div>
-            <div>
-                <button>Register</button>
+            <div className="register-form__btn">
+                <button>Submit</button>
             </div>
         </form>
     );
