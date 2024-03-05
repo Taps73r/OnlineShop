@@ -10,7 +10,7 @@
 
     &__form-position {
         background-color: #d9d9d993;
-        height: 510px;
+        height: 560px;
         width: 500px;
 
         &__toggle {
@@ -18,7 +18,6 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
-            margin-top: 10px;
 
             & p {
                 color: #222831;
@@ -27,7 +26,6 @@
             }
 
             & button {
-                margin-top: 4px;
                 font-size: 25px;
                 cursor: pointer;
                 font-weight: 500;
