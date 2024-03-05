@@ -78,7 +78,7 @@ export function LoginForm({
                 )}
             </div>
             <div className="login-form__btn">
-                <button>Log In</button>
+                <button>submit</button>
             </div>
         </form>
     );
