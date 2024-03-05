@@ -30,6 +30,7 @@ export function RegistrationForm({
             <div className="register-form__name">
                 <label>Name</label>
                 <input
+                    placeholder="enter your name here"
                     {...register("name", {
                         required: "Name is required field",
                         maxLength: {
@@ -48,6 +49,7 @@ export function RegistrationForm({
             <div className="register-form__email">
                 <label>Email</label>
                 <input
+                    placeholder="enter your e-mail here"
                     {...register("email", {
                         required: "Email is required field",
                         maxLength: {
@@ -66,6 +68,7 @@ export function RegistrationForm({
             <div className="register-form__password">
                 <label>Password</label>
                 <input
+                    placeholder="enter your password here"
                     {...register("password", {
                         required: "Password is required field",
                         maxLength: {
