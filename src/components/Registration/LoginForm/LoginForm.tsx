@@ -51,9 +51,7 @@ export function LoginForm({
                     })}
                     type="text"
                 />
-                {errors.email && (
-                    <ErrorForm message={errors.email.message} />
-                )}
+                {errors.email && <ErrorForm message={errors.email.message} />}
             </div>
             <div className="login-form__password">
                 <label>password</label>
@@ -78,7 +76,7 @@ export function LoginForm({
                 )}
             </div>
             <div className="login-form__btn">
-                <button>submit</button>
+                <button>Submit</button>
             </div>
         </form>
     );
