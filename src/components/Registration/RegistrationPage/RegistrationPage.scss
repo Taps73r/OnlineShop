@@ -4,14 +4,17 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-family: $main-font-family;
+    gap: 40px;
 
     &__form-position {
         background-color: #d9d9d993;
         height: 560px;
         width: 500px;
+        border-radius: 4px;
 
         &__toggle {
             display: flex;

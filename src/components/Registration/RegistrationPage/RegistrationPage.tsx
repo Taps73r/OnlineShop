@@ -5,13 +5,18 @@ import "./RegistrationPage.scss";
 import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
+
 import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
 import { LoginForm } from "../LoginForm/LoginForm";
+import { Header } from "@/components/Header/Header";
 
 import { ICredentials, IUserData } from "@/interface/authorization.interface";
+
 import { useAuthMutation } from "@/hooks/useAuthMutation";
-import { ROUTES } from "@/routes/routes";
 import { useRegisterMutation } from "@/hooks/useRegisterMutation";
+
+import { ROUTES } from "@/routes/routes";
+
 import { error } from "console";
 
 export function RegistrationPage() {
@@ -51,6 +56,7 @@ export function RegistrationPage() {
 
     return (
         <div className="registration-page">
+            <Header />
             <div className="registration-page__form-position">
                 {isLogin ? (
                     <>
@@ -70,9 +76,7 @@ export function RegistrationPage() {
                     ) : (
                         <p>you already have an account?</p>
                     )}
-                    <button
-                        onClick={toggleForm}
-                    >
+                    <button onClick={toggleForm}>
                         {isLogin ? "sign up" : "log in"}
                     </button>
                 </div>
