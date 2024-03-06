@@ -4,15 +4,20 @@ import "./RegistrationForm.scss";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { IRegisterFields } from "@/interface/authorization.interface";
+import {
+    IRegisterFields,
+    IUserData,
+} from "@/interface/authorization.interface";
 import { ErrorForm } from "@/components/common/ErrorForm";
 
 interface IRegistrationFormProps {
     registerErrors: string;
+    handleRegister: (UserData: IUserData) => void;
 }
 
 export function RegistrationForm({
     registerErrors,
+    handleRegister,
 }: IRegistrationFormProps): JSX.Element {
     const {
         register,
@@ -20,7 +25,9 @@ export function RegistrationForm({
         formState: { errors },
     } = useForm<IRegisterFields>();
 
-    const onSubmit: SubmitHandler<IRegisterFields> = (data) => alert(data.name);
+    const onSubmit: SubmitHandler<IRegisterFields> = (data) => {
+        handleRegister(data as IUserData);
+    };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="register-form">
