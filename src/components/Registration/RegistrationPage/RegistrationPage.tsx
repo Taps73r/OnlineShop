@@ -17,8 +17,6 @@ import { useRegisterMutation } from "@/hooks/useRegisterMutation";
 
 import { ROUTES } from "@/routes/routes";
 
-import { error } from "console";
-
 export function RegistrationPage() {
     const [isLogin, setIsLogin] = useState<boolean>(false);
     const [errorData, setErrorData] = useState<string>("");
@@ -56,7 +54,7 @@ export function RegistrationPage() {
 
     return (
         <div className="registration-page">
-            <Header />
+            <Header loginPage={true} />
             <div className="registration-page__form-position">
                 {isLogin ? (
                     <>
