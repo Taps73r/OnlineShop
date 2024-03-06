@@ -29,15 +29,18 @@ export function RegistrationPage() {
         setIsLogin(!isLogin);
     };
 
-    // const handleRegister = async (userData: IUserData) => {
-    //     registerMutation.mutate(userData, {
-    //         onSuccess: (data) => {
-    //             const token: string;
-    //             //TODO: Доробити реєстрацію, запустити бекенд
-    //         },
-    //         onError: (error) => {},
-    //     });
-    // };
+    const handleRegister = async (userData: IUserData) => {
+        registerMutation.mutate(userData, {
+            onSuccess: (data) => {
+                const token: string = data.data.token;
+                document.cookie = `accessToken=${token}; Path=/; Secure; SameSite=None`;
+                router.push(ROUTES.home);
+            },
+            onError: (error) => {
+                setErrorData(`${error}`);
+            },
+        });
+    };
 
     const handleAuth = async (credentials: ICredentials) => {
         authMutation.mutate(credentials, {
@@ -65,7 +68,10 @@ export function RegistrationPage() {
                     </>
                 ) : (
                     <>
-                        <RegistrationForm registerErrors="" />
+                        <RegistrationForm
+                            registerErrors=""
+                            handleRegister={handleRegister}
+                        />
                     </>
                 )}
                 <div className="registration-page__form-position__toggle">
