@@ -17,7 +17,7 @@ import { useRegisterMutation } from "@/hooks/useRegisterMutation";
 
 import { ROUTES } from "@/routes/routes";
 
-export function RegistrationPage() {
+export function RegistrationPage(): JSX.Element {
     const [isLogin, setIsLogin] = useState<boolean>(false);
     const [errorData, setErrorData] = useState<string>("");
     const router = useRouter();
@@ -34,7 +34,7 @@ export function RegistrationPage() {
             onSuccess: (data) => {
                 const token: string = data.data.token;
                 document.cookie = `accessToken=${token}; Path=/; Secure; SameSite=None`;
-                router.push(ROUTES.home);
+                router.push(ROUTES.product);
             },
             onError: (error) => {
                 setErrorData(`${error}`);
@@ -47,7 +47,7 @@ export function RegistrationPage() {
             onSuccess: (data) => {
                 const token: string = data.data.token;
                 document.cookie = `accessToken=${token}; Path=/; Secure; SameSite=None`;
-                router.push(ROUTES.home);
+                router.push(ROUTES.product);
             },
             onError: (error) => {
                 setErrorData(`${error}`);
