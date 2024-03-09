@@ -1,15 +1,14 @@
+import { IProducts } from "@/interface/products.interface";
 import { ProductService } from "@/services/product.service";
 
 import { useQuery } from "@tanstack/react-query";
 
-export const useProductsQuery = () => {
-    const productService = new ProductService();
+const productService = new ProductService();
 
+export const useProductsQuery = (page?: number) => {
     return useQuery({
         queryKey: ["products"],
-        queryFn: () => {
-            const response = productService.getProducts();
-            return response;
-        },
+        queryFn: () => productService.getProducts(page),
+        enabled: false,
     });
 };
