@@ -7,6 +7,9 @@ export const useProductsQuery = () => {
 
     return useQuery({
         queryKey: ["products"],
-        queryFn: () => productService.getProducts(),
+        queryFn: () => {
+            const response = productService.getProducts();
+            return response;
+        },
     });
 };
