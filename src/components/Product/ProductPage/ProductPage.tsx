@@ -4,8 +4,7 @@ import { Header } from "@/components/Header/Header";
 import "./ProductPage.scss";
 
 import { useProductsQuery } from "@/hooks/useProductsQuery";
-import { useEffect, useState } from "react";
-import { IProduct } from "@/interface/products.interface";
+
 import { ProductContainer } from "../ProductContainer/ProductContainer";
 
 export function ProductPage(): JSX.Element {
