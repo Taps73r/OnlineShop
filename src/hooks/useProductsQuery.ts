@@ -1,14 +1,16 @@
 import { IProducts } from "@/interface/products.interface";
 import { ProductService } from "@/services/product.service";
 
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 
 const productService = new ProductService();
 
-export const useProductsQuery = (page?: number) => {
-    return useQuery({
+export const useProductsQuery = () => {
+    return useInfiniteQuery({
         queryKey: ["products"],
-        queryFn: () => productService.getProducts(page),
-        enabled: false,
+        queryFn: ({ pageParam }: { pageParam: number }) =>
+            productService.getProducts(pageParam),
+        initialPageParam: 0,
+        getNextPageParam: (lastPage) => lastPage.number + 1,
     });
 };

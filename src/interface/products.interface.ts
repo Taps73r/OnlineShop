@@ -1,6 +1,7 @@
 export interface IProducts {
     content: IProduct[];
     totalPages: number;
+    number: number;
 }
 
 export interface IProduct {

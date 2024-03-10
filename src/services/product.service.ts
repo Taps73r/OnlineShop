@@ -6,7 +6,7 @@ class ProductService {
     private URL = `http://localhost:8080`;
     private token = getCookie("accessToken");
 
-    async getProducts(page?: number): Promise<IProducts> {
+    async getProducts(page?: number) {
         const response = await axios.get(`${this.URL}/network_drives`, {
             params: {
                 page: page,
