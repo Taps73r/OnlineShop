@@ -9,30 +9,14 @@ import { IProduct } from "@/interface/products.interface";
 import { ProductContainer } from "../ProductContainer/ProductContainer";
 
 export function ProductPage(): JSX.Element {
-    const [page, setPage] = useState<number>(0);
+    const ProductQuery = useProductsQuery();
 
-    const ProductQuery = useProductsQuery(page);
-
-    const [productData, setProductData] = useState<IProduct[]>([]);
-
-    useEffect(() => {
-        void ProductQuery.refetch();
-    }, [page]);
-
-    useEffect(() => {
-        if (ProductQuery.data) {
-            setProductData((prevData) => [
-                ...prevData,
-                ...ProductQuery.data.content,
-            ]);
-        }
-    }, [ProductQuery.data?.content]);
-
+    const productData = ProductQuery.data?.pages;
     return (
         <div className="product-page">
             <Header loginPage={false} />
             <ProductContainer productData={productData} />
-            <button onClick={() => setPage(1)}>More</button>
+            <button onClick={() => ProductQuery.fetchNextPage()}>More</button>
         </div>
     );
 }
